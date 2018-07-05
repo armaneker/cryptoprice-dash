@@ -147,8 +147,8 @@
             }
 
             _getCurrencyHistoricData(currency) {
-                if (event !== undefined) {
-                    currency = event.target.dataset.item;
+                if (currency instanceof Event){
+                    currency=currency.target.dataset.item;
                 }
                 var ajax = this.$.coinbase;
                 ajax.url = 'https://api.coinbase.com/v2/prices/' + currency + '-USD/historic?period=week';
